@@ -1,6 +1,6 @@
 const query = document.getElementById('search')
-        const submitBtn = document.getElementById('submit')
-        const BASE_URL = 'http://localhost:5000/api/words';
+const submitBtn = document.getElementById('submit')
+const BASE_URL = 'http://localhost:5000/api/words';
     
         //검색어가 특수문자일 때 검색이 안되도록 함
         function checkIfStringHasSpecialCharacter(str) {
@@ -53,7 +53,7 @@ const query = document.getElementById('search')
                 }
 
                 const template = words.map(word => {
-                    
+                   
                     return (
                         `
                         <div class="item">
