@@ -23,12 +23,22 @@ const BASE_URL = 'http://localhost:5000/api/words';
             //사용자 입력 유효성 검증
             if(checkIfStringHasSpecialCharacter(query)){
                 enableSubmitBtn(false)
+                if(query!=null){
+                    serend.innerHTML = "&quot;"+query+"&quot;의 검색결과는 "+words.length+"개 입니다."
+                }else{
+                    return serend.innerHTML = "검색어를 입력하세요";
+                }
                 container.innerHTML = "특수문자가 포함되어 있습니다."
                 return;
             }
             
             if(checkIfStringHasNumbers(query)){
                 enableSubmitBtn(false)
+                if(query!=null){
+                    serend.innerHTML = "&quot;"+query+"&quot;의 검색결과는 "+words.length+"개 입니다."
+                }else{
+                    return serend.innerHTML = "검색어를 입력하세요";
+                }
                 container.innerHTML = "숫자가 포함되어 있습니다."
                 return;
             }
@@ -48,6 +58,11 @@ const BASE_URL = 'http://localhost:5000/api/words';
                 const{words} = data;
                 // 데이터 유효성 검증
                 if(words.length === 0){
+                    if(query!=null){
+                        serend.innerHTML = "&quot;"+query+"&quot;의 검색결과는 "+words.length+"개 입니다."
+                    }else{
+                        return serend.innerHTML = "검색어를 입력하세요";
+                    }
                     container.innerHTML = "단어를 찾을 수 없습니다."
                     return;
                 }
@@ -64,6 +79,11 @@ const BASE_URL = 'http://localhost:5000/api/words';
                         `
                     )
                 })
+                if(query!=null){
+                    serend.innerHTML = "&quot;"+query+"&quot;의 검색결과는 "+words.length+"개 입니다."
+                }else{
+                    return serend.innerHTML = "검색어를 입력하세요";
+                }
                 container.innerHTML = template.join("")//DOM에 Template 삽입
             })
             
